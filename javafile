@@ -1,0 +1,58 @@
+public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    Scanner sc = new Scanner(System.in);
+    double a , b, c;
+    char reponse=' ', mode=' ';
+
+    System.out.print("TRIANGLE DE PYTHAGORE");
+    System.out.println("------------------------");
+
+    do{
+        do{
+            mode = ' ';
+            System.out.println("CHOISISEZ LE MODE:");
+            System.out.println("-1 Deux cathetes");
+            System.out.println("-2 Cathete hypothenuse");
+            mode = sc.nextLine().charAt(0);
+            if(mode != '1' && mode!= '2'){
+                System.out.println("mode inconnu choisisez 1 ou 2");
+            }
+        }while(mode != '1' && mode != '2');
+
+        if(mode == '1'){
+            System.out.println("entrez la cathete 1");
+            a = sc.nextDouble();
+            sc.nextLine();
+
+            System.out.println("entrez la cathete 2");
+            b = sc.nextDouble();
+            sc.nextLine();
+
+            c = a*a + b*b;
+            System.out.println("l'hypothenuse vaut: " + Math.sqrt(c));              
+        }else{
+            System.out.println("entrez la cathete");
+            a = sc.nextDouble();
+            sc.nextLine();
+
+            System.out.println("entrez l'hypotenuse");
+            c = sc.nextDouble();
+            sc.nextLine();
+            if(c<a){
+                System.out.println("entrez les bonnes valeurs: l'hypotenuse est le plus grand cote");
+                continue;
+            }
+
+            b = c*c - a*a;
+            System.out.println("l'autre cathete vaut: "+ Math.sqrt(b));
+        }
+
+        do{
+            System.out.println("RECOMMENCER AVEC UN AUTRE TRIANGLE (O/N)");
+
+            reponse = sc.nextLine().charAt(0);
+        }while(reponse != 'O' && reponse != 'N');
+    }while(reponse == 'O');
+    System.out.println("AU REVOIR");    
+
+}
